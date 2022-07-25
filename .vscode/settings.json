@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "springcore": true,
+        ".vscode": true,
+        ".metadata": true,
+        "springboot.zip": false,
+        "**/springboot.zip": false
+    },
+    "explorerExclude.backup": null,
+    "java.configuration.updateBuildConfiguration": "automatic"
+}
