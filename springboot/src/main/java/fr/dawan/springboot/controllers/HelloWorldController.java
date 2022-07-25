@@ -9,7 +9,7 @@ public class HelloWorldController {
     @Value("${app.msg}")
     private String message;
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String helloWorld() {
         return message + " !";
     }
