@@ -3,6 +3,8 @@ package fr.dawan.springcore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 
 import fr.dawan.springcore.beans.ArticleDao;
 import fr.dawan.springcore.beans.ArticleService;
@@ -12,6 +14,7 @@ import fr.dawan.springcore.beans.ArticleService;
 public class AppConf {
     
     @Bean
+    @Primary
     public ArticleDao daoA() {
         return new ArticleDao("data1");
     }
@@ -22,6 +25,7 @@ public class AppConf {
     }
 
     @Bean
+    @Scope("prototype")
     public ArticleService serviceB(ArticleDao daoA) {
         return new ArticleService(daoA);
     }

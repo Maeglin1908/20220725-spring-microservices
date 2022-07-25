@@ -2,11 +2,17 @@ package fr.dawan.springcore.beans;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 @Service(value="serviceA")
+//@Scope("protoype")
+@Lazy
 public class ArticleService implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,6 +40,16 @@ public class ArticleService implements Serializable {
         this.dao = dao;
     }
 
+    @PostConstruct
+    public void init() {
+        System.out.println("Méthode init");
+    }
+    
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Méthode destroy");
+    }
+    
     @Override
     public String toString() {
         return "ArticleService [dao=" + dao + ", toString()=" + super.toString() + "]";
